@@ -23,6 +23,6 @@ Then just sync the repo like normal:
 Alternatively, just sync the new repo:
 
 ```
-# emaint sync --repo velentr-utilities
+# emaint sync --repo gentoo-overlay
 ```
 
