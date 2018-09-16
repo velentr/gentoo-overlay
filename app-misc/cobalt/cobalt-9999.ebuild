@@ -22,4 +22,7 @@ src_install() {
 	emake DESTDIR="${D}" prefix=/usr install
 	dodoc README.md
 	doman doc/*.[0-9]
+
+	insinto /usr/share/zsh/site-functions
+	doins zsh/_cobalt
 }
