@@ -22,6 +22,7 @@ src_compile() {
 
 src_install() {
 	dobin rebar3
+	doman manpages/rebar3.1
 
 	dobashcomp priv/shell-completion/bash/${PN}
 
