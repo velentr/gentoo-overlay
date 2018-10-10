@@ -1,0 +1,42 @@
+diff --git a/src/apk_defines.h b/src/apk_defines.h
+index c7ab7e6..578d92d 100644
+--- a/src/apk_defines.h
++++ b/src/apk_defines.h
+@@ -41,6 +41,8 @@ static inline int PTR_ERR(const void *ptr) { return (int)(long) ptr; }
+ static inline int IS_ERR(const void *ptr) { return (unsigned long)ptr >= (unsigned long)-4095; }
+ static inline int IS_ERR_OR_NULL(const void *ptr) { return IS_ERR(ptr) || !ptr; }
+ 
++static inline void IGNORE(int r) { }
++
+ #if defined __GNUC__ && __GNUC__ == 2 && __GNUC_MINOR__ < 96
+ #define __builtin_expect(x, expected_value) (x)
+ #endif
+diff --git a/src/database.c b/src/database.c
+index 8cf63b2..65c0646 100644
+--- a/src/database.c
++++ b/src/database.c
+@@ -1958,9 +1958,9 @@ static int update_permissions(apk_hash_item item, void *ctx)
+ 
+ 	r = fstatat(db->root_fd, dir->name, &st, AT_SYMLINK_NOFOLLOW);
+ 	if (r < 0 || (st.st_mode & 07777) != (dir->mode & 07777))
+-		fchmodat(db->root_fd, dir->name, dir->mode, 0);
++		IGNORE(fchmodat(db->root_fd, dir->name, dir->mode, 0));
+ 	if (r < 0 || st.st_uid != dir->uid || st.st_gid != dir->gid)
+-		fchownat(db->root_fd, dir->name, dir->uid, dir->gid, 0);
++		IGNORE(fchownat(db->root_fd, dir->name, dir->uid, dir->gid, 0));
+ 
+ 	return 0;
+ }
+diff --git a/src/print.c b/src/print.c
+index 63be863..166e7cb 100644
+--- a/src/print.c
++++ b/src/print.c
+@@ -67,7 +67,7 @@ void apk_print_progress(size_t done, size_t total)
+ 
+ 	if (apk_progress_fd != 0) {
+ 		i = snprintf(buf, sizeof(buf), "%zu/%zu\n", done, total);
+-		write(apk_progress_fd, buf, i);
++		IGNORE(write(apk_progress_fd, buf, i));
+ 	}
+ 	last_done = done;
+ 

@@ -1,0 +1,24 @@
+diff --git a/src/archive.c b/src/archive.c
+index 9a184fd..5f494af 100644
+--- a/src/archive.c
++++ b/src/archive.c
+@@ -20,6 +20,7 @@
+ #include <sysexits.h>
+ #include <sys/wait.h>
+ #include <sys/stat.h>
++#include <sys/sysmacros.h>
+ #include <sys/xattr.h>
+ #include <limits.h>
+ #include <stdint.h>
+diff --git a/src/database.c b/src/database.c
+index 8cf63b2..2d719ab 100644
+--- a/src/database.c
++++ b/src/database.c
+@@ -25,6 +25,7 @@
+ #include <sys/file.h>
+ #include <sys/wait.h>
+ #include <sys/stat.h>
++#include <sys/sysmacros.h>
+ #include <sys/mount.h>
+ #include <sys/statvfs.h>
+ #include <linux/magic.h>

@@ -1,0 +1,104 @@
+diff --git a/test/solver.sh b/test/solver.sh
+index bc230c6..9726f9f 100755
+--- a/test/solver.sh
++++ b/test/solver.sh
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ get_block() {
+ 	awk '/^@'$1'/{p=1;next} /^@/{p=0} p{print}'
+diff --git a/test/test1.sh b/test/test1.sh
+index 12de8a8..4e39fb6 100755
+--- a/test/test1.sh
++++ b/test/test1.sh
+@@ -1,4 +1,4 @@
+-#!/bin/sh -e
++#!/bin/bash -e
+ 
+ # desc: test if basic add/del/upgrade works
+ 
+diff --git a/test/test2.sh b/test/test2.sh
+index 851119b..793a4e9 100755
+--- a/test/test2.sh
++++ b/test/test2.sh
+@@ -1,4 +1,4 @@
+-#!/bin/sh -e
++#!/bin/bash -e
+ 
+ # desc: test if dependencies works
+ 
+diff --git a/test/test3.sh b/test/test3.sh
+index 421d576..dc89d76 100755
+--- a/test/test3.sh
++++ b/test/test3.sh
+@@ -1,4 +1,4 @@
+-#!/bin/sh -e
++#!/bin/bash -e
+ 
+ # desc: test successful pre-install
+ 
+diff --git a/test/test4.sh b/test/test4.sh
+index 5a1c8ff..e1c2d10 100755
+--- a/test/test4.sh
++++ b/test/test4.sh
+@@ -1,4 +1,4 @@
+-#!/bin/sh -e
++#!/bin/bash -e
+ 
+ # desc: test failing pre-install
+ 
+diff --git a/test/test5.sh b/test/test5.sh
+index ea3dd53..d027002 100755
+--- a/test/test5.sh
++++ b/test/test5.sh
+@@ -1,4 +1,4 @@
+-#!/bin/sh -e
++#!/bin/bash -e
+ 
+ # desc: test post-install script
+ 
+diff --git a/test/test6.sh b/test/test6.sh
+index 592c228..0b036b6 100755
+--- a/test/test6.sh
++++ b/test/test6.sh
+@@ -1,4 +1,4 @@
+-#!/bin/sh -e
++#!/bin/bash -e
+ 
+ # desc: test triggers in kernel package
+ 
+diff --git a/test/test7.sh b/test/test7.sh
+index e3e3113..f37bc1b 100755
+--- a/test/test7.sh
++++ b/test/test7.sh
+@@ -1,4 +1,4 @@
+-#!/bin/sh -e
++#!/bin/bash -e
+ 
+ # desc: test triggers in busybox package
+ 
+diff --git a/test/test8.sh b/test/test8.sh
+index 8a1f0da..698e26d 100755
+--- a/test/test8.sh
++++ b/test/test8.sh
+@@ -1,7 +1,7 @@
+-#!/bin/sh -e
++#!/bin/bash -e
+ 
+ # desc: test if upgrade works when package is missing in repo
+ 
+ $APK add --root $ROOT --initdb --repository $PWD/repo1 test-a
+ 
+-$APK upgrade --root $ROOT 
++$APK upgrade --root $ROOT
+diff --git a/test/version.sh b/test/version.sh
+index 18199a6..8339ece 100755
+--- a/test/version.sh
++++ b/test/version.sh
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ fail=0
+ cat version.data | while read a result b rest ; do

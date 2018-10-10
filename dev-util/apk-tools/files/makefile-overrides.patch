@@ -1,0 +1,19 @@
+diff --git a/Makefile b/Makefile
+index 48ffef0..c416f4d 100644
+--- a/Makefile
++++ b/Makefile
+@@ -9,12 +9,12 @@ VERSION := 2.10.1
+ ##
+ # Default directories
+
+-DESTDIR		:=
++DESTDIR		?=
+ SBINDIR		:= /sbin
+ LIBDIR		:= /lib
+ CONFDIR		:= /etc/apk
+ MANDIR		:= /usr/share/man
+-DOCDIR		:= /usr/share/doc/apk
++DOCDIR		?= /usr/share/doc/apk
+
+ export DESTDIR SBINDIR LIBDIR CONFDIR MANDIR DOCDIR
+
