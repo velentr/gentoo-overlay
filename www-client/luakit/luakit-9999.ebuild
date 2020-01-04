@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -10,7 +10,7 @@ HOMEPAGE="https://luakit.github.io/luakit"
 
 if [[ ${PV} == 9999 ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="git://github.com/luakit/luakit.git"
+	EGIT_REPO_URI="https://github.com/luakit/luakit.git"
 else
 	SRC_URI="https://github.com/luakit/luakit/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
@@ -40,6 +40,9 @@ DEPEND="${RDEPEND}
 src_compile() {
 	emake \
 		CC=$(tc-getCC) \
+		PREFIX="${EPREFIX}/usr" \
+		DOCDIR="${EPREFIX}/usr/share/doc/${PF}" \
+		XDGPREFIX="${EPREFIX}/etc/xdg" \
 		LUA_PKG_NAME=$(usex luajit 'luajit' 'lua') \
 		LUA_BIN_NAME=$(usex luajit 'luajit' 'lua') \
 		all
