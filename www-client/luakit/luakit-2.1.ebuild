@@ -24,7 +24,7 @@ RDEPEND="
 	dev-db/sqlite:3
 	dev-libs/glib:2
 	dev-lua/luafilesystem[luajit=]
-	net-libs/webkit-gtk:4=
+	<=net-libs/webkit-gtk-2.24.4:4=
 	x11-libs/gtk+:3
 	luajit? ( dev-lang/luajit:2 )
 	!luajit? ( dev-lang/lua:0 )"
