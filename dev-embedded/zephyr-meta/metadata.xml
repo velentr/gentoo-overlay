@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <!-- maintainer-needed -->
-  </pkgmetadata>
+	<maintainer type="person">
+		<email>brian@kubisiak.com</email>
+		<name>Brian Kubisiak</name>
+	</maintainer>
+	<use>
+		<flag name="build-test">Install requirements for build tests of zephyr.</flag>
+		<flag name="run-test">Install requirements for run tests of zephyr.</flag>
+		<flag name="extras">Install requirements useful for development/developers workflow.</flag>
+	</use>
+</pkgmetadata>
