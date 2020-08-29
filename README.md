@@ -10,7 +10,7 @@ Create `/etc/portage/repos.conf/gentoo-overlay.conf` with the following:
 [gentoo-overlay]
 location = /usr/local/gentoo-overlay
 sync-type = git
-sync-uri = https://github.com/velentr/gentoo-overlay.git
+sync-uri = https://git.sr.ht/~bdk/gentoo-overlay
 masters = gentoo
 auto-sync = yes
 ```
