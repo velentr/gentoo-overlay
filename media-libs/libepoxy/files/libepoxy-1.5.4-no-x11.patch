@@ -1,0 +1,36 @@
+From 6b09a8bc48bd06314c6716426ea73f38402e6e64 Mon Sep 17 00:00:00 2001
+From: Emmanuele Bassi <ebassi@gnome.org>
+Date: Thu, 2 Jan 2020 21:59:15 +0000
+Subject: [PATCH] Use EGL_NO_X11 to disable X11 headers
+
+MESA_EGL_NO_X11_HEADERS has been deprecated, and libglvnd only supports
+EGL_NO_X11.
+
+Fixes: #214
+---
+ src/dispatch_common.h | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/src/dispatch_common.h b/src/dispatch_common.h
+index a361ccc..a136943 100644
+--- a/src/dispatch_common.h
++++ b/src/dispatch_common.h
+@@ -47,9 +47,12 @@
+ #endif
+ #if PLATFORM_HAS_EGL
+ # if !ENABLE_X11
+-/* Mesa uses this symbol to avoid including X11 headers when including
+- * EGL.h; since X11 was explicitly disabled at configuration time, we
+- * should do the same
++/* Disable including X11 headers if the X11 support was disabled at
++ * configuration time
++ */
++#  define EGL_NO_X11 1
++/* Older versions of Mesa use this symbol to achieve the same result
++ * as EGL_NO_X11
+  */
+ #  define MESA_EGL_NO_X11_HEADERS 1
+ # endif
+-- 
+2.26.2
+
