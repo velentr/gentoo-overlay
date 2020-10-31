@@ -3,13 +3,16 @@
 
 EAPI=7
 
-inherit git-r3
-
 DESCRIPTION="cli knowledge store"
 HOMEPAGE="https://github.com/velentr/ks.git"
 
-EGIT_REPO_URI="https://github.com/velentr/${PN}.git"
-KEYWORDS="~amd64"
+if [[ ${PV} =~ 9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/velentr/${PN}.git"
+else
+	SRC_URI="https://github.com/velentr/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64"
+fi
 
 LICENSE="MIT"
 SLOT="0"
