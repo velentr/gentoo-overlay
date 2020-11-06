@@ -3,7 +3,8 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7,8} )
+DISTUTILS_USE_SETUPTOOLS=rdepend
+PYTHON_COMPAT=( python3_{6..8} )
 
 inherit distutils-r1
 
@@ -24,8 +25,5 @@ RDEPEND="
 	>=dev-python/pyyaml-5.1[${PYTHON_USEDEP}]
 	dev-python/pykwalify[${PYTHON_USEDEP}]
 	dev-python/configobj[${PYTHON_USEDEP}]
-"
-DEPEND="${RDEPEND}
-	dev-python/setuptools[${PYTHON_USEDEP}]
 	dev-python/packaging[${PYTHON_USEDEP}]
 "
